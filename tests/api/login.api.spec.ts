@@ -3,7 +3,7 @@ import { AuthApi } from '../../services/auth.api';
 import { ENV } from "../../playwright.config";
 
 test.describe('Login API', () => {
-    test('Login with valid credentials', async ({ request }) => {
+    test('@smoke @regression Login with valid credentials', async ({ request }) => {
         const authApi = new AuthApi(request);
         const response = await authApi.login(
             ENV.usernameEmployer,
@@ -16,7 +16,7 @@ test.describe('Login API', () => {
         expect(responseJson.message).toBe("Successful login.")
     });
 
-    test('Login with invalid credentials', async ({ request }) => {
+    test('@regression Login with invalid credentials', async ({ request }) => {
         const authApi = new AuthApi(request);
         const response = await authApi.login(
             "WrongCredentials",

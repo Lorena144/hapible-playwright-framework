@@ -2,7 +2,7 @@ import { test, expect } from '../../fixtures/auth.fixture';
 import { DataGenerator } from '../../utils/data-generator';
 
 test.describe('Job UI', () => {
-    test('Create Job', async ({ page, loggedInPage }) => {
+    test('@smoke @regression Create Job', async ({ page, loggedInPage }) => {
 
         await page.goto(`employer.html`);
 

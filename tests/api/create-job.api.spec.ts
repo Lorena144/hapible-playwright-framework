@@ -4,7 +4,7 @@ import { DataGenerator } from '../../utils/data-generator';
 
 test.describe('Jobs API', () => {
 
-    test('Create a new job', async ({ request }) => {
+    test('@smoke @regression Create a new job', async ({ request }) => {
         const jobsApi = new JobsApi(request);
         const job = {
             title: DataGenerator.jobTitle(),

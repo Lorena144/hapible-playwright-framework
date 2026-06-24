@@ -48,6 +48,12 @@ The project focuses on building a maintainable and scalable automation framework
 * Validate Active → Inactive status transition
 * Validate Inactivate → Reactivate button transition
 
+### Network Mocking & Interception
+
+* Display mocked jobs list using route.fulfill()
+* Simulate API 500 response
+* Simulate aborted network request using route.abort()
+
 ---
 
 ## API Automation
@@ -61,14 +67,11 @@ The project focuses on building a maintainable and scalable automation framework
 
 * Create job posting
 
----
+--- 
 
-## Storage State Authentication
+## Hybrid UI/API Flows
 
-* Login executed once through setup test
-* Authentication state stored in `playwright/.auth/employer.json`
-* Authenticated session reused by UI tests
-* Reduced execution time by avoiding repetitive UI logins
+* Create job through API and verify it in UI
 
 ---
 
@@ -93,13 +96,17 @@ hapible-playwright-framework
 │   │   ├── register.api.spec.ts
 │   │   └── create-job.api.spec.ts
 │   │
+│   ├── hybrid
+│   │   └── create-job.hybrid.spec.ts
+│   │
 │   ├── setup
 │   │   └── auth.setup.spec.ts
 │   │
 │   └── ui
 │       ├── login.ui.spec.ts
 │       ├── create-job.ui.spec.ts
-│       └── inactivate-job.ui.spec.ts
+│       ├── inactivate-job.ui.spec.ts
+│       └── mock-jobs.ui.spec.ts
 │
 ├── utils
 │   └── data-generator.ts
@@ -120,6 +127,8 @@ hapible-playwright-framework
 * Storage State Authentication
 * Environment-based Configuration
 * Dynamic Test Data Generation
+* Network Mocking and Interception
+* Hybrid UI/API Testing
 * Cross Browser Execution
 * Maintainable Framework Architecture
 
@@ -143,6 +152,24 @@ Run API tests only:
 
 ```bash
 npm run test:api
+```
+
+Run Hybrid tests only:
+
+```bash
+npm run test:hybrid
+```
+
+Run Smoke suite:
+
+```bash
+npm run test:smoke
+```
+
+Run Regression suite:
+
+```bash
+npm run test:regression
 ```
 
 ---

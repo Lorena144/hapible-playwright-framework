@@ -5,7 +5,7 @@ test.use({
 });
 
 test.describe('Job Status UI', () => {
-    test('Inactivate activate job', async ({ page }) => {
+    test('@regression Inactivate activate job', async ({ page }) => {
         await page.goto(`employer.html`);
 
         const activeCard = page

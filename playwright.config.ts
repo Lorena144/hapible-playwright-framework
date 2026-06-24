@@ -14,10 +14,11 @@ export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
   reporter: 'html',
+  retries: 1,
 
   use: {
     baseURL: ENV.uiBaseUrl,
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
   },
 
 

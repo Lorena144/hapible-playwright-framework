@@ -4,7 +4,7 @@ import { DataGenerator } from '../../utils/data-generator';
 
 
 test.describe('Register API', () => {
-    test('Register a new jobseeker user', async ({ request }) => {
+    test('@regression Register a new jobseeker user', async ({ request }) => {
 
         const authApi = new AuthApi(request);
         const user = {
