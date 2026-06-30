@@ -1,8 +1,8 @@
 # Hapible Playwright Framework
 
-Test automation framework built using TypeScript, Playwright and APIRequestContext.
+A scalable test automation framework built with TypeScript and Playwright, covering UI, API, and Hybrid UI/API testing.
 
-The project focuses on building a maintainable and scalable automation framework covering both UI and API testing using reusable components, fixtures, storage state authentication and hybrid UI/API flows.
+The framework follows modern automation practices including Page Object Model, Service Layer, Custom Fixtures, Storage State Authentication, Allure Reporting, and Cross-Browser Testing.
 
 ## Tech Stack
 
@@ -15,14 +15,18 @@ The project focuses on building a maintainable and scalable automation framework
 ### API Automation
 
 * Playwright APIRequestContext
+* Service Layer
 * TypeScript
 
 ### Test Architecture
 
+* Page Object Model
+* Service Layer
 * Custom Fixtures
 * Storage State Authentication
 * Environment Configuration (.env)
 * Dynamic Test Data Generation
+* Allure Reporting
 
 ### Cross Browser Testing
 
@@ -66,6 +70,7 @@ The project focuses on building a maintainable and scalable automation framework
 ### Job Management
 
 * Create job posting
+* Automatic cleanup using API
 
 --- 
 
@@ -84,6 +89,7 @@ hapible-playwright-framework
 │   └── auth.fixture.ts
 │
 ├── pages
+│   ├── employer-page.ts
 │   └── login-page.ts
 │
 ├── services
@@ -92,9 +98,9 @@ hapible-playwright-framework
 │
 ├── tests
 │   ├── api
+│   │   ├── create-job.api.spec.ts
 │   │   ├── login.api.spec.ts
-│   │   ├── register.api.spec.ts
-│   │   └── create-job.api.spec.ts
+│   │   └── register.api.spec.ts
 │   │
 │   ├── hybrid
 │   │   └── create-job.hybrid.spec.ts
@@ -103,9 +109,9 @@ hapible-playwright-framework
 │   │   └── auth.setup.spec.ts
 │   │
 │   └── ui
-│       ├── login.ui.spec.ts
 │       ├── create-job.ui.spec.ts
 │       ├── inactivate-job.ui.spec.ts
+│       ├── login.ui.spec.ts
 │       └── mock-jobs.ui.spec.ts
 │
 ├── utils
@@ -113,7 +119,8 @@ hapible-playwright-framework
 │
 ├── playwright.config.ts
 ├── package.json
-└── .env.example
+├── .env.example
+└── README.md
 ```
 
 ---
@@ -130,6 +137,7 @@ hapible-playwright-framework
 * Network Mocking and Interception
 * Hybrid UI/API Testing
 * Cross Browser Execution
+* Allure Reporting
 * Maintainable Framework Architecture
 
 ---
@@ -170,6 +178,11 @@ Run Regression suite:
 
 ```bash
 npm run test:regression
+```
+
+Generate Allure Report
+```bash
+npm run allure:serve
 ```
 
 ---

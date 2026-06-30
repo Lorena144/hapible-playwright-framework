@@ -1,4 +1,4 @@
-import { APIRequestContext } from "@playwright/test";
+import { APIRequestContext, expect } from "@playwright/test";
 import { ENV } from "../playwright.config";
 
 export class JobsApi {
@@ -22,5 +22,31 @@ export class JobsApi {
 
             }
         );
+    };
+
+    async getJobs() {
+        const response = await this.request.get(`${ENV.apiBaseUrl}/jobs`);
+        expect(response.status()).toBe(200);
+        return response;
+    };
+
+    async getJobIdByTitle(title: string) {
+        const response = await this.getJobs();
+        const jobs = await response.json();
+        const job = jobs.find((j: any) => j.title === title);
+        return job?.id
+    };
+
+    async deleteJob(id: string) {
+        const response = await this.request.delete(`${ENV.apiBaseUrl}/jobs`,
+            {
+                form: {
+                    id
+                }
+            });
+
+        expect(response.status()).toBe(200);
+        const responseJson = await response.json();
+        expect(responseJson.success).toBe('Job deleted');
     }
 }

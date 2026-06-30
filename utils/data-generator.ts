@@ -15,10 +15,10 @@ export class DataGenerator {
     }
 
     static jobTitle() {
-        return `Job_Title_${this.timestamp}`;
+        return `Job_Title_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
     }
 
-    static jobDesription() {
-        return `Job_Description_${this.timestamp}`;
+    static jobDescription() {
+        return `Job_Description_${this.timestamp}_${Math.floor(Math.random() * 1000)}`;
     }
 }

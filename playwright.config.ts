@@ -13,12 +13,17 @@ export const ENV = {
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
-  reporter: 'html',
+  reporter: [
+    ['html'],
+    ['allure-playwright']
+  ],
   retries: 1,
 
   use: {
     baseURL: ENV.uiBaseUrl,
     trace: 'retain-on-failure',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
   },
 
 
