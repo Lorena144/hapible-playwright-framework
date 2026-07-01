@@ -30,6 +30,11 @@ jobs:
       - name: Setup Playwright Environment
         uses: ./.github/actions/setup-playwright
 
+      - name: Debug environment
+        run: |
+          echo "UI_BASE_URL=$UI_BASE_URL"
+          echo "API_BASE_URL=$API_BASE_URL"
+
       - name: Run API Tests
         run: npm run test:api
 
