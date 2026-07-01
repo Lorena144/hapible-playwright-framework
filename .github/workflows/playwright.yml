@@ -64,8 +64,18 @@ jobs:
       - name: Generate Storage State
         run: npm run test:setup
 
+      - name: Debug login page
+        if: always()
+        run: |
+          echo "===== LOGIN PAGE HEADERS ====="
+          curl -I "$UI_BASE_URL/login.html"
+
+          echo ""
+          echo "===== LOGIN PAGE CONTENT ====="
+          curl -L "$UI_BASE_URL/login.html" | head -40
+
       - name: Run UI Tests
-        run: npm run test:ui
+        run: npm run test:ui        
 
       - name: Run Hybrid Tests
         run: npm run test:hybrid
