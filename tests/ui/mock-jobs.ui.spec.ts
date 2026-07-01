@@ -1,8 +1,12 @@
 import { test, expect } from '@playwright/test';
+import * as allure from 'allure-js-commons';
 
 test.describe('Mock UI Jobs', () => {
 
     test('@regression Display mocked jobs list', async ({ page }) => {
+
+        await allure.feature('Dashboard');
+        await allure.story('Network Mocking');
 
         const mockedJobs = [
             {
@@ -26,6 +30,9 @@ test.describe('Mock UI Jobs', () => {
 
     test('@regression Display error message when jobs API returns 500', async ({ page }) => {
 
+        await allure.feature('Dashboard');
+        await allure.story('Network Mocking');
+
         await page.route('**/jobs**', async route => {
             route.fulfill({
                 status: 500,
@@ -46,6 +53,9 @@ test.describe('Mock UI Jobs', () => {
     });
 
     test('@regression Display empty page when jobs request is aborted', async ({ page }) => {
+
+        await allure.feature('Dashboard');
+        await allure.story('Network Mocking');
 
         await page.route('**/jobs**', async route => {
             await route.abort();

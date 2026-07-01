@@ -1,5 +1,7 @@
 # Hapible Playwright Framework
 
+![Playwright CI](https://github.com/Lorena144/hapible-playwright-framework/actions/workflows/playwright.yml/badge.svg)
+
 A scalable test automation framework built with TypeScript and Playwright, covering UI, API, and Hybrid UI/API testing.
 
 The framework follows modern automation practices including Page Object Model, Service Layer, Custom Fixtures, Storage State Authentication, Network Mocking, Allure Reporting, CI/CD pipelines and Cross-Browser Testing.
@@ -26,6 +28,7 @@ The framework follows modern automation practices including Page Object Model, S
 * Storage State Authentication
 * Environment Configuration (.env)
 * Dynamic Test Data Generation
+* GitHub Actions
 * Jenkins
 
 ### Cross Browser Testing
@@ -36,8 +39,13 @@ The framework follows modern automation practices including Page Object Model, S
 
 ## CI/CD
 
-* Jenkins
-* Allure Report
+- GitHub Actions
+- Jenkins
+
+## Reporting
+
+- Allure Report
+- GitHub Pages
 
 ---
 
@@ -77,7 +85,7 @@ The framework follows modern automation practices including Page Object Model, S
 * Create job posting
 * Automatic cleanup using API
 
----
+--- 
 
 ## Hybrid UI/API Flows
 
@@ -89,6 +97,15 @@ The framework follows modern automation practices including Page Object Model, S
 
 ```text
 hapible-playwright-framework
+│
+├── .github
+│   ├── actions
+│   │   ├── setup-playwright
+│   │   ├── upload-allure
+│   │   └── upload-playwright-report
+│   │
+│   └── workflows
+│       └── playwright.yml
 │
 ├── fixtures
 │   └── auth.fixture.ts
@@ -129,7 +146,7 @@ hapible-playwright-framework
 * Network Mocking and Interception
 * Hybrid UI/API Testing
 * Cross Browser Execution
-* Allure Reporting
+* Allure Report
 * CI/CD Integration
 * Maintainable Framework Architecture
 

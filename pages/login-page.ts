@@ -14,7 +14,13 @@ export class LoginPage {
         this.loginButon = page.getByRole('button', { name: "Login" });
     }
     async goto() {
-        await this.page.goto(`login.html`);
+        await this.page.goto('login.html', {
+            waitUntil: 'domcontentloaded'
+        });
+
+        await this.usernameInput.waitFor({
+            state: 'visible'
+        });
     }
 
     async login(username: string, password: string) {

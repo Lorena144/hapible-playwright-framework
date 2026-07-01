@@ -1,10 +1,13 @@
 import { test, expect } from '@playwright/test';
 import { AuthApi } from '../../services/auth.api';
 import { DataGenerator } from '../../utils/data-generator';
-
+import * as allure from 'allure-js-commons';
 
 test.describe('Register API', () => {
     test('@regression Register a new jobseeker user', async ({ request }) => {
+
+        await allure.feature('Authentication');
+        await allure.story('Register');
 
         const authApi = new AuthApi(request);
         const user = {
