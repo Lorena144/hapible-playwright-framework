@@ -2,7 +2,7 @@
 
 A scalable test automation framework built with TypeScript and Playwright, covering UI, API, and Hybrid UI/API testing.
 
-The framework follows modern automation practices including Page Object Model, Service Layer, Custom Fixtures, Storage State Authentication, Allure Reporting, and Cross-Browser Testing.
+The framework follows modern automation practices including Page Object Model, Service Layer, Custom Fixtures, Storage State Authentication, Network Mocking, Allure Reporting, CI/CD pipelines and Cross-Browser Testing.
 
 ## Tech Stack
 
@@ -26,13 +26,18 @@ The framework follows modern automation practices including Page Object Model, S
 * Storage State Authentication
 * Environment Configuration (.env)
 * Dynamic Test Data Generation
-* Allure Reporting
+* Jenkins
 
 ### Cross Browser Testing
 
 * Chromium
 * Firefox
 * WebKit
+
+## CI/CD
+
+* Jenkins
+* Allure Report
 
 ---
 
@@ -72,7 +77,7 @@ The framework follows modern automation practices including Page Object Model, S
 * Create job posting
 * Automatic cleanup using API
 
---- 
+---
 
 ## Hybrid UI/API Flows
 
@@ -89,37 +94,24 @@ hapible-playwright-framework
 │   └── auth.fixture.ts
 │
 ├── pages
-│   ├── employer-page.ts
-│   └── login-page.ts
+│
+├── playwright
+│   └── .auth
 │
 ├── services
-│   ├── auth.api.ts
-│   └── jobs.api.ts
 │
 ├── tests
 │   ├── api
-│   │   ├── create-job.api.spec.ts
-│   │   ├── login.api.spec.ts
-│   │   └── register.api.spec.ts
-│   │
 │   ├── hybrid
-│   │   └── create-job.hybrid.spec.ts
-│   │
 │   ├── setup
-│   │   └── auth.setup.spec.ts
-│   │
 │   └── ui
-│       ├── create-job.ui.spec.ts
-│       ├── inactivate-job.ui.spec.ts
-│       ├── login.ui.spec.ts
-│       └── mock-jobs.ui.spec.ts
 │
 ├── utils
-│   └── data-generator.ts
 │
 ├── playwright.config.ts
 ├── package.json
 ├── .env.example
+├── Jenkinsfile
 └── README.md
 ```
 
@@ -138,6 +130,7 @@ hapible-playwright-framework
 * Hybrid UI/API Testing
 * Cross Browser Execution
 * Allure Reporting
+* CI/CD Integration
 * Maintainable Framework Architecture
 
 ---
@@ -168,19 +161,8 @@ Run Hybrid tests only:
 npm run test:hybrid
 ```
 
-Run Smoke suite:
-
-```bash
-npm run test:smoke
-```
-
-Run Regression suite:
-
-```bash
-npm run test:regression
-```
-
 Generate Allure Report
+
 ```bash
 npm run allure:serve
 ```
